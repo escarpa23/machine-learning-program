@@ -1,0 +1,61 @@
+---
+title: "Untitled"
+author: "Alberto"
+date: "9/16/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+read
+```
+
+```{r}
+ggplot()
+```
+
+```{r}
+library(ggplot2)
+ggplot()
+```
+
+```{r}
+read.csv(file = 'https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv')
+class(read.csv(file = 'https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv'))
+```
+
+```{r}
+pepa <- read.csv(file = 'https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv')
+pepa$total_bill
+```
+
+```{r}
+pepa['total_bill']
+```
+
+```{r}
+pepa[0]
+```
+
+```{r}
+library(dplyr)
+group_by(.data = pepa, sex)
+summarise(.data = group_by(.data = pepa, sex), mean(total_bill))
+```
+
+```{r}
+pepa %>% 
+  group_by(sex) %>% 
+  summarise(mean(total_bill))
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(data = pepa, mapping = aes(x = total_bill, y = smoker)) +
+  geom_boxplot()
+```
+
